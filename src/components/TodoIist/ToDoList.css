@@ -1,0 +1,11 @@
+.todo-list{
+    display: flex;
+    flex-direction: column; 
+    justify-content: space-between;
+    gap: 10px;
+}
+.todo-title-desc{
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
