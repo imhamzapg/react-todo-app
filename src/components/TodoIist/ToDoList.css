@@ -1,11 +1,61 @@
-.todo-list{
-    display: flex;
-    flex-direction: column; 
-    justify-content: space-between;
-    gap: 10px;
+.todo-list > div {
+    display: flex; 
+    justify-content: space-between; 
+    align-items: center;
+    padding: 15px;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1); 
 }
-.todo-title-desc{
+.todo-title-desc {
     display: flex;
     flex-direction: column;
     gap: 5px;
+}
+
+.todo-actions {
+    display: flex;
+    align-items: center;
+    gap: 10px; 
+}
+
+.todo-tile {
+    margin: 0;
+    font-size: 1.2rem;
+}
+
+.todo-desc {
+    margin: 0;
+    font-size: 0.9rem;
+    color: #333;
+}
+.todo-delete-btn {
+    background-color: #ff4757;
+    color: white;
+    border: none;
+    padding: 8px 15px;
+    border-radius: 6px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+.todo-checkbox {
+    width: 22px;
+    height: 22px;
+    cursor: pointer;
+    accent-color: #2f3542; /* Boja kvačice */
+    transition: transform 0.2s ease;
+}
+
+.todo-checkbox:hover {
+    transform: scale(1.2); 
+}
+.todo-delete-btn:hover {
+    background-color: #ff6b81; 
+    transform: translateY(-2px); 
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.todo-delete-btn:active {
+    transform: translateY(0); /* Vrati se kad klikneš */
 }

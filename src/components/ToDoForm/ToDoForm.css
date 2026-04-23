@@ -25,3 +25,9 @@
   border-radius: 6px;
   transition: background 0.3s;
 }
+.no-tasks {
+  text-align: center;
+  color: #718096;
+  font-size: 18px;
+  margin-top: 20px;
+}

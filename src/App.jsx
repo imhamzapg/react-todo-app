@@ -7,6 +7,17 @@ import ToDoList from './components/TodoIist/ToDoList'
 
 function App() {
   const [todos, setTodos] = useState([])
+  const [filter, setFilter] = useState("all")
+
+  const filteredTodos = todos.filter((todo) => {
+    if (filter === "all") {
+      return todo
+    } else if (filter === "active") {
+      return todo.completed === false
+    } else if (filter === "completed") {
+      return todo.completed === true
+    }
+  })
 
 
   const handleToggle = (id) => {
@@ -43,10 +54,10 @@ function App() {
   };
   return (
     <>
-      <Header />
+      <Header setFilter={setFilter}  />
       <ToDoForm addTask={addTask} />
       <ToDoList
-        todos={todos}
+        todos={filteredTodos}
         deleteTask={deleteTask}
         handleToggle={handleToggle}
       />
