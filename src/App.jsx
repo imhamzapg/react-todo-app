@@ -1,13 +1,14 @@
-import { useState } from 'react'
+import { use, useState } from 'react'
 import './App.css'
 import Header from './components/Header/Header'
 import ToDoForm from './components/ToDoForm/ToDoForm'
 import ToDoList from './components/TodoIist/ToDoList'
-
+import ToDoControls from './components/ToDoControls/ToDoControls'
 
 function App() {
   const [todos, setTodos] = useState([])
   const [filter, setFilter] = useState("all")
+  const [searchValue, setSearchValue] = useState("")
 
   const filteredTodos = todos.filter((todo) => {
     if (filter === "all") {
@@ -17,6 +18,8 @@ function App() {
     } else if (filter === "completed") {
       return todo.completed === true
     }
+  }).filter((todo)=>{
+    return todo.title.toLowerCase().includes(searchValue.toLowerCase())
   })
 
 
@@ -56,6 +59,7 @@ function App() {
     <>
       <Header setFilter={setFilter}  />
       <ToDoForm addTask={addTask} />
+      <ToDoControls setSearchValue={setSearchValue} />
       <ToDoList
         todos={filteredTodos}
         deleteTask={deleteTask}

@@ -7,7 +7,12 @@
   border-radius: 12px;
   box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
 }
-
+.toDoForm{
+  margin: 20px auto;
+  max-width: 75%;
+  box-shadow: 0px 3px 18px #3bab61;
+  border-radius: 10px;
+}
 .toDoForm input, .toDoForm select {
   padding: 12px;
   border: 1px solid #e2e8f0;

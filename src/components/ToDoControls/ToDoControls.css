@@ -1,0 +1,21 @@
+
+.toDoControls{
+    display: flex;
+    justify-content: center;
+    margin-top: 10px;
+}
+.toDoControls input{
+    width: 65%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    box-sizing: border-box;
+    border: 2px solid #ccc;
+    border-radius: 4px;
+    outline: none;
+    transition: 0.3s;
+}
+
+.toDoControls input:focus{
+    border-color: #555;
+    box-shadow: 0 0 5px #555;
+}
