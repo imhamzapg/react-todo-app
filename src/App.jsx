@@ -9,7 +9,13 @@ function App() {
   const [todos, setTodos] = useState([])
   const [filter, setFilter] = useState("all")
   const [searchValue, setSearchValue] = useState("")
+  const [sortBy, setSortBy] = useState("createdAt")
 
+  const priority = {
+    high: 3,
+    medium: 2,
+    low: 1
+  }
   const filteredTodos = todos.filter((todo) => {
     if (filter === "all") {
       return todo
@@ -18,8 +24,17 @@ function App() {
     } else if (filter === "completed") {
       return todo.completed === true
     }
-  }).filter((todo)=>{
+  }).filter((todo) => {
     return todo.title.toLowerCase().includes(searchValue.toLowerCase())
+  }).sort((a, b) => {
+    if (sortBy === "createdAt") {
+      return new Date(b.createdAt) - new Date(a.createdAt)
+    } else if (sortBy === "priority") {
+      return priority[b.priority] - priority[a.priority]
+    } else if (sortBy === "title") {
+      return a.title.localeCompare(b.title)
+    }
+    return 0
   })
 
 
@@ -57,7 +72,10 @@ function App() {
   };
   return (
     <>
-      <Header setFilter={setFilter}  />
+      <Header
+        setFilter={setFilter}
+        setSortBy={setSortBy}
+      />
       <ToDoForm addTask={addTask} />
       <ToDoControls setSearchValue={setSearchValue} />
       <ToDoList
