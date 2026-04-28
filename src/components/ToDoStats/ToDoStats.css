@@ -1,0 +1,10 @@
+.stats{
+    display: flex;
+    gap: 15px;
+    margin-left: 10%;
+    color: gray
+}
+
+.stats p{
+    padding: 5px 10px;
+}

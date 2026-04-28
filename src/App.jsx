@@ -4,12 +4,27 @@ import Header from './components/Header/Header'
 import ToDoForm from './components/ToDoForm/ToDoForm'
 import ToDoList from './components/TodoIist/ToDoList'
 import ToDoControls from './components/ToDoControls/ToDoControls'
-
+import ToDoStats from './components/ToDoStats/ToDoStats'
 function App() {
   const [todos, setTodos] = useState([])
   const [filter, setFilter] = useState("all")
   const [searchValue, setSearchValue] = useState("")
   const [sortBy, setSortBy] = useState("createdAt")
+
+  const filteredTodosLength = todos.filter((todo) => {
+    if (todo.completed === true) {
+      return todos.length
+    }
+  })
+  const clearCompleted = () => {
+    setTodos(
+      todos.filter((todo) => {
+        if (todo.completed === false) {
+          return todo
+        }
+      })
+    )
+  }
 
   const priority = {
     high: 3,
@@ -78,11 +93,17 @@ function App() {
       />
       <ToDoForm addTask={addTask} />
       <ToDoControls setSearchValue={setSearchValue} />
+      <ToDoStats
+        todos={todos}
+        filteredTodosLength={filteredTodosLength}
+        clearCompleted={clearCompleted}
+      />
       <ToDoList
         todos={filteredTodos}
         deleteTask={deleteTask}
         handleToggle={handleToggle}
       />
+
     </>
   )
 }
