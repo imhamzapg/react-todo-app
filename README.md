@@ -36,4 +36,6 @@ The application follows a **Modular Component Architecture** to ensure scalabili
 1. **Clone the repository:**
    ```bash
    git clone [https://github.com/imhamzapg/react-todo-app.git]
-   
+
+---
+*Developed by **Hamza** as part of a 2026 Frontend Engineering Roadmap.* 🚀
