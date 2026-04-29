@@ -11,6 +11,36 @@ function App() {
   const [searchValue, setSearchValue] = useState("")
   const [sortBy, setSortBy] = useState("createdAt")
 
+  const startEdit = (id) => {
+    const updatedTodos = todos.map((todo) => {
+      if (todo.id === id) {
+        return { ...todo, isEditing: true }
+      }
+      return { ...todo, isEditing: false }
+    })
+    setTodos(updatedTodos)
+  }
+  const saveEdit = (id, newTitle) => {
+    const updatedTodos = todos.map((todo) => {
+      if (todo.id === id) {
+        return ({ ...todo, title: newTitle, isEditing: false })
+      }
+      return todo
+    })
+    setTodos(updatedTodos)
+  }
+  const cancelEdit = (id) => {
+    const updatedTodos = todos.map((todo) => {
+      if (todo.id === id) {
+        return { ...todo, isEditing: false };
+      }
+      return todo;
+    });
+    setTodos(updatedTodos);
+  };
+
+
+
   const filteredTodosLength = todos.filter((todo) => {
     if (todo.completed === true) {
       return todos.length
@@ -102,6 +132,9 @@ function App() {
         todos={filteredTodos}
         deleteTask={deleteTask}
         handleToggle={handleToggle}
+        startEdit={startEdit}
+        saveEdit={saveEdit}
+        cancelEdit={cancelEdit}
       />
 
     </>
